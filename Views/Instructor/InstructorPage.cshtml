@@ -1,0 +1,275 @@
+﻿@{
+    ViewBag.Title = "InstructorPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/StyleSheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="~/Scripts/redirect.js"></script>
+</head>
+<body class="bg-white">
+    <div class="row" style="padding-right:20px; padding-left:20px;">
+        <div class="col-6 bg-white">
+            <div class="card">
+                <div class="card-header bg-blue text-white">
+                    <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Overview</h4>
+                </div>
+                <h6 class="text-dark my-3 mx-3" style="font-family: Arial; font-size:14px">Hello, Instructor. Welcome to e-Campus. You may follow the links below. Please do not forget to log out when you finish.</h6>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item border px-3 pb-1 pt-3">
+                        <div class="card">
+                            <div class="card-header bg-gray" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','Courses')">Courses</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Courses you are teaching.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 py-1">
+                        <div class="card">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','StudentsOfCourses')">Students of Courses</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">You can see the students of a course.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card ">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','Projects')">Projects</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Projects you are leading.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card ">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','WeeklySchedule')">Weekly Schedule</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Your weekly schedule.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','AdvisedStudents')">Advised Students</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Students information that you are advising.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card ">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','SupervisedStudents')">Supervised Students</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Graduate Students information that you are supervising.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','FreeHours')">Free Hours</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">You can see the free hours of the courses you are teaching.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','AddExam')">Add Exam </a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Add exam to your courses.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="list-group-item border px-3 p-1">
+                        <div class="card">
+                            <div class="card-header bg-gray text-white" style="height: 40px">
+                                <a class="text-lightblue" onclick="redirectToPage('Instructor','DisplayExams')">Display Exams</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p1 class="text-dark" style="font-family: Arial; font-size:13px">Display your exams.</p1>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-6 bg-white pr-5">
+            <li class="list-group-item p-0">
+                <div class="card">
+                    <div class="card-header bg-blue text-white">
+                        <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Weekly Schedule</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <table border="1" cellspacing="2" cellpadding="10" class="table-striped" style="min-height: 250px; min-width: 250px">
+                                <thead>
+                                    <tr class="" style="text-align: center; font-size:11px ">
+                                        <th></th>
+                                        <th>1<br>(08:30-09:20)</th>
+                                        <th>2<br>(09:30-10:20)</th>
+                                        <th>3<br>(10:30-11:20)</th>
+                                        <th>4<br>(11:30-12:20)</th>
+                                        <th>5<br>(12:30-13:20)</th>
+                                        <th>6<br>(13:30-14:20)</th>
+                                        <th>7<br>(14:30-15:20)</th>
+                                        <th>8<br>(15:30-16:20)</th>
+                                        <th>9<br>(16:30-17:20)</th>
+                                        <th>10<br>(17:30-18:20)</th>
+                                        <th>11<br>(18:30-19:20)</th>
+                                        <th>12<br>(19:30-20:20)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="" style="text-align: center; font-size:11px">
+                                    <tr>
+                                        <td>M</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>T</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>W</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TH</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>F</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="list-group-item p-0 mt-3">
+                <div class="card">
+                    <div class="card-header bg-blue text-white">
+                        <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Announcements</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h6 class="text-dark" style="height: 14px; font-family: Arial; font-size:14px">There are no announcements.</h6>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="list-group-item p-0 mt-2">
+                <div class="card">
+                    <div class="card-header bg-blue text-white">
+                        <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Holds & Warnings</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h6 class="text-dark" style="height: 14px; font-family: Arial; font-size:14px">There are no holds or warnings.</h6>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

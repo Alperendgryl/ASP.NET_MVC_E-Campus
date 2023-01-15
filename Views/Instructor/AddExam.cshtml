@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "AddExam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/StyleSheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-white">
+    <div class="row" style="padding-right:20px; padding-left:20px;">
+        <div class="col bg-white">
+            <div class="card">
+                <div class="card-header bg-blue text-white">
+                    <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Add Exam</h4>
+                </div>
+                <form class="mx-3" style="text-align:center">
+                    <div class="form-outline mb-4 mt-2">
+                        <input type="text" name="eName" style="width: 100%; height: 35px" placeholder="Exam Name" required />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="date" name="edate" style="width: 100%; height: 35px" placeholder="Exam Date (yyyy.mm.dd)" required></td>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="text" name="issn" style="width: 100%; height: 35px" placeholder="Instructor SSN" required></td>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="text" name="courseCode" style="width: 100%; height: 35px" placeholder="Course Code" required></td>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="text" name="yearr" style="width: 100%; height: 35px" placeholder="Year" required></td>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="text" name="semester"style="width:100%; height: 35px" placeholder="Semester" required></td>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <td><input type="text" name="sectionId" style="width: 100%; height: 35px" placeholder="Section ID" required></td>
+                    </div>
+                    <div class="row">
+                        <div class="col-6"><button type="submit" class="btn btn-blue btn-block mb-4" style="height:40px">Add Exam</button></div>
+                        <div class="col-6"><button type="reset" class="btn btn-blue btn-block mb-4" style="height:40px">Reset</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
