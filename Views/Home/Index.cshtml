@@ -16,17 +16,21 @@
     <section class="px-5">
         <div class="row justify-content-center">
             <div class="col">
-                <img src="" style="height: 200px">
+                <img src="https://e-campus.isikun.edu.tr/Content/img/logo.png" style="height: 200px">
 
                 <h5>Users can log in using citizenship number as username and password.</h5>
 
-                <input type="text" name="ssn" id="ssn" class="login-form" style="width:400px; height:20px" placeholder="SSN" required />
+                <form action="/Home/Login" method="post">
+                    <label for="name"></label>
+                    <input class="login-form" type="text" id="name" name="name" placeholder="Name" style="width:400px; height:20px" required>
 
-                <input type="password" name="password" id="password" class="login-form" style="width:400px; height:20px" placeholder="Password" required />
+                    <label for="ssn"></label>
+                    <input class="login-form" type="text" id="ssn" name="ssn" placeholder="SSN" style="width:400px; height:20px" required>
 
-                <div>
-                    <button onclick="login()" class="btn btn-blue" style="width:400px; height:40px">Login</button>
-                </div>
+                    <div>
+                        <input class="btn btn-blue" style="width:400px; height:40px" type="submit" value="Login">
+                    </div>
+                </form>
 
                 <h5 class="footer">2023 © E-Campus - Center for Educational Technologies</h5>
             </div>

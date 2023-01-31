@@ -24,24 +24,29 @@
                     <br>
                     <table class="col text-dark" border="1" cellspacing="2" cellpadding="20">
                         <tr>
+                            <th>Lead Ssn</th>
                             <th>Project Name</th>
-                            <th>Subject</th>
+                            <th>Budget</th>
                             <th>Start Date</th>
                             <th>End Date</th>
+                            <th>Subject</th>
+                            <th>Constr D.Name</th>
                         </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                        @foreach (var Project in Model)
+                        {
+                            <tr>
+                                <td>@Project.leadSsn</td>
+                                <td>@Project.prName</td>
+                                <td>@Project.budget</td>
+                                <td>@Project.startDate</td>
+                                <td>@Project.endDate</td>
+                                <td>@Project.subject</td>
+                                <td>@Project.contrDName</td>
+                            </tr>
+                        }
                     </table>
+
+
                 </li>
             </div>
         </div>

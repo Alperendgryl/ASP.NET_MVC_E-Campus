@@ -25,20 +25,26 @@
                     <table class="col text-dark" border="1" cellspacing="2" cellpadding="20">
                         <tr>
                             <th>Project Name</th>
-                            <th>Working Hour</th>
-                            <th>Rank</th>
-                            <th>Lead Instructor Name</th>
+                            <th>Budget</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Subject</th>
+                            <th>Lead SSN</th>
+                            <th>Contr D.Name</th>
+
                         </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                        @foreach (var ListOfProjects in Model)
+                        {
+                            <tr>
+                                <td>@ListOfProjects.prName</td>
+                                <td>@ListOfProjects.budget</td>
+                                <td>@ListOfProjects.startDate</td>
+                                <td>@ListOfProjects.endDate</td>
+                                <td>@ListOfProjects.subject</td>
+                                <td>@ListOfProjects.leadSsn</td>
+                                <td>@ListOfProjects.contrDName</td>
+                            </tr>
+                        }
                     </table>
                 </li>
             </div>

@@ -24,21 +24,26 @@
                     <br>
                     <table class="col text-dark" border="1" cellspacing="2" cellpadding="20">
                         <tr>
+                            <th>Date</th>
+                            <th>Semester</th>
                             <th>Course Code</th>
-                            <th>Course Name</th>
+                            <th>Year</th>
+                            <th>Section ID</th>
                             <th>Exam Name</th>
-                            <th>Exam Date</th>
+                            <th>Instructor Ssn</th>
                         </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                        @foreach (var Exam in Model)
+                        {
+                            <tr>
+                                <td>@Exam.date</td>
+                                <td>@Exam.semester</td>
+                                <td>@Exam.courseCode</td>
+                                <td>@Exam.yearr</td>
+                                <td>@Exam.sectionId</td>
+                                <td>@Exam.ename</td>
+                                <td>@Exam.issn</td>
+                            </tr>
+                        }
                     </table>
                 </li>
             </div>

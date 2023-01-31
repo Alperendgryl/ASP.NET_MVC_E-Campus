@@ -12,10 +12,9 @@ namespace E_Campus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Curricula
+    public partial class gradstudent
     {
-        public string currCode { get; set; }
-        public bool gradOrUGrad { get; set; }
-        public string dName { get; set; }
+        public string sssn { get; set; }
+        public string advisorSsn { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Campus.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,8 @@ namespace E_Campus_MVC.Controllers
 {
     public class InstructorController : Controller
     {
-        public ActionResult InstructorPage() 
+        private isikuniEntities1 db = new isikuniEntities1();
+        public ActionResult InstructorPage()
         {
             return View();
         }
@@ -23,19 +25,23 @@ namespace E_Campus_MVC.Controllers
         }
         public ActionResult Courses()
         {
-            return View();
+            var courses = db.Database.SqlQuery<Course>("SELECT * FROM Course WHERE numHours = '5' OR numHours = '6'").ToList();
+            return View(courses);
         }
         public ActionResult DisplayExams()
         {
-            return View();
+            var DisplayExams = db.Database.SqlQuery<Exam>("SELECT * FROM Exam WHERE issn = '111111'").ToList();
+            return View(DisplayExams);
         }
+
         public ActionResult FreeHours()
         {
             return View();
         }
         public ActionResult Projects()
         {
-            return View();
+            var Projects = db.Database.SqlQuery<Project>("SELECT * FROM Project WHERE contrDName = 'Computer Science Department'").ToList();
+            return View(Projects);
         }
         public ActionResult StudentsOfCourses()
         {

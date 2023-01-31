@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="isikuniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.Attends' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Attends">
+          <Key>
+            <PropertyRef Name="semester" />
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+            <PropertyRef Name="ename" />
+            <PropertyRef Name="issn" />
+            <PropertyRef Name="sssn" />
+          </Key>
+          <Property Name="semester" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="yearr" Type="int" Nullable="false" />
+          <Property Name="sectionId" Type="int" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="sssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="score" Type="int" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="courseCode" />
+          </Key>
+          <Property Name="ects" Type="int" Nullable="false" />
+          <Property Name="courseName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="numHours" Type="int" />
+          <Property Name="preReqCourseCode" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Curricula">
+          <Key>
+            <PropertyRef Name="currCode" />
+          </Key>
+          <Property Name="currCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gradOrUGrad" Type="bit" Nullable="false" />
+          <Property Name="dName" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.curriculaCourses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="curriculaCourses">
+          <Key>
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="dName" />
+            <PropertyRef Name="currCode" />
+          </Key>
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="dName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="currCode" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="dName" />
+          </Key>
+          <Property Name="dName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="budget" Type="int" />
+          <Property Name="headSSn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="buildingName" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="sssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.enrolled' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="enrolled">
+          <Key>
+            <PropertyRef Name="sssn" />
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+            <PropertyRef Name="issn" />
+            <PropertyRef Name="hourr" />
+            <PropertyRef Name="dayy" />
+          </Key>
+          <Property Name="sssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="lettergrade" Type="varchar" MaxLength="2" />
+          <Property Name="semester" Type="varchar" MaxLength="10" />
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="yearr" Type="int" Nullable="false" />
+          <Property Name="sectionId" Type="int" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="hourr" Type="int" Nullable="false" />
+          <Property Name="dayy" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ename" />
+          </Key>
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="semester" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="yearr" Type="int" Nullable="false" />
+          <Property Name="sectionId" Type="int" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.GradsInProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GradsInProjects">
+          <Key>
+            <PropertyRef Name="PrjleadSsn" />
+            <PropertyRef Name="prName" />
+            <PropertyRef Name="gradsssn" />
+          </Key>
+          <Property Name="PrjleadSsn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="prName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="gradsssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="workingHours" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.gradstudent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="gradstudent">
+          <Key>
+            <PropertyRef Name="sssn" />
+            <PropertyRef Name="advisorSsn" />
+          </Key>
+          <Property Name="sssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="advisorSsn" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ALPER\DESKTOP\WEBSITES\E-CAMPUS\E-CAMPUS ASP.NET MVC\E-CAMPUS\APP_DATA\ISIKUNI.MDF.dbo.InstrInProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="InstrInProjects">
+          <Key>
+            <PropertyRef Name="PrjleadSsn" />
+            <PropertyRef Name="prName" />
+            <PropertyRef Name="issn" />
+          </Key>
+          <Property Name="PrjleadSsn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="prName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="workingHours" Type="int" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="ssn" />
+          </Key>
+          <Property Name="ssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="iName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="rankk" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="baseSalary" Type="int" Nullable="false" />
+          <Property Name="extraSalary" Type="int" />
+          <Property Name="dName" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="prevDegrees">
+          <Key>
+            <PropertyRef Name="college" />
+            <PropertyRef Name="degree" />
+            <PropertyRef Name="year" />
+          </Key>
+          <Property Name="college" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="degree" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="gradsssn" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="prName" />
+          </Key>
+          <Property Name="leadSsn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="prName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="budget" Type="int" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="subject" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="contrDName" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sectionn">
+          <Key>
+            <PropertyRef Name="semester" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+          </Key>
+          <Property Name="quota" Type="int" />
+          <Property Name="semester" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="courseCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="yearr" Type="int" Nullable="false" />
+          <Property Name="sectionId" Type="int" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sssn" />
+          </Key>
+          <Property Name="sssn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="gradorUgrad" Type="bit" Nullable="false" />
+          <Property Name="advisorSsn" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="currCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="sName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="studentId" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="dayy" />
+            <PropertyRef Name="hourr" />
+          </Key>
+          <Property Name="dayy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="hourr" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="isikuniModelStoreContainer">
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curricula" EntityType="Self.Curricula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prevDegrees" EntityType="Self.prevDegrees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sectionn" EntityType="Self.sectionn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attends" EntityType="Self.Attends" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Attends].[semester] AS [semester], 
+    [Attends].[courseCode] AS [courseCode], 
+    [Attends].[yearr] AS [yearr], 
+    [Attends].[sectionId] AS [sectionId], 
+    [Attends].[ename] AS [ename], 
+    [Attends].[issn] AS [issn], 
+    [Attends].[sssn] AS [sssn], 
+    [Attends].[score] AS [score]
+    FROM [dbo].[Attends] AS [Attends]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="curriculaCourses" EntityType="Self.curriculaCourses" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [curriculaCourses].[courseCode] AS [courseCode], 
+    [curriculaCourses].[dName] AS [dName], 
+    [curriculaCourses].[currCode] AS [currCode]
+    FROM [dbo].[curriculaCourses] AS [curriculaCourses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="enrolled" EntityType="Self.enrolled" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [enrolled].[sssn] AS [sssn], 
+    [enrolled].[lettergrade] AS [lettergrade], 
+    [enrolled].[semester] AS [semester], 
+    [enrolled].[courseCode] AS [courseCode], 
+    [enrolled].[yearr] AS [yearr], 
+    [enrolled].[sectionId] AS [sectionId], 
+    [enrolled].[issn] AS [issn], 
+    [enrolled].[hourr] AS [hourr], 
+    [enrolled].[dayy] AS [dayy]
+    FROM [dbo].[enrolled] AS [enrolled]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GradsInProjects" EntityType="Self.GradsInProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GradsInProjects].[PrjleadSsn] AS [PrjleadSsn], 
+    [GradsInProjects].[prName] AS [prName], 
+    [GradsInProjects].[gradsssn] AS [gradsssn], 
+    [GradsInProjects].[workingHours] AS [workingHours]
+    FROM [dbo].[GradsInProjects] AS [GradsInProjects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="gradstudent" EntityType="Self.gradstudent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [gradstudent].[sssn] AS [sssn], 
+    [gradstudent].[advisorSsn] AS [advisorSsn]
+    FROM [dbo].[gradstudent] AS [gradstudent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InstrInProjects" EntityType="Self.InstrInProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [InstrInProjects].[PrjleadSsn] AS [PrjleadSsn], 
+    [InstrInProjects].[prName] AS [prName], 
+    [InstrInProjects].[issn] AS [issn], 
+    [InstrInProjects].[workingHours] AS [workingHours]
+    FROM [dbo].[InstrInProjects] AS [InstrInProjects]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="isikuniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="courseCode" />
+          </Key>
+          <Property Name="ects" Type="Int32" Nullable="false" />
+          <Property Name="courseName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numHours" Type="Int32" />
+          <Property Name="preReqCourseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Curricula">
+          <Key>
+            <PropertyRef Name="currCode" />
+          </Key>
+          <Property Name="currCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gradOrUGrad" Type="Boolean" Nullable="false" />
+          <Property Name="dName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="dName" />
+          </Key>
+          <Property Name="dName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="budget" Type="Int32" />
+          <Property Name="headSSn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buildingName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="sssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ename" />
+          </Key>
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="semester" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearr" Type="Int32" Nullable="false" />
+          <Property Name="sectionId" Type="Int32" Nullable="false" />
+          <Property Name="ename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="ssn" />
+          </Key>
+          <Property Name="ssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankk" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="baseSalary" Type="Int32" Nullable="false" />
+          <Property Name="extraSalary" Type="Int32" />
+          <Property Name="dName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="prevDegrees">
+          <Key>
+            <PropertyRef Name="college" />
+            <PropertyRef Name="degree" />
+            <PropertyRef Name="year" />
+          </Key>
+          <Property Name="college" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="degree" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="gradsssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="prName" />
+          </Key>
+          <Property Name="leadSsn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="budget" Type="Int32" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="subject" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrDName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sectionn">
+          <Key>
+            <PropertyRef Name="semester" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+          </Key>
+          <Property Name="quota" Type="Int32" />
+          <Property Name="semester" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearr" Type="Int32" Nullable="false" />
+          <Property Name="sectionId" Type="Int32" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sssn" />
+          </Key>
+          <Property Name="sssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gradorUgrad" Type="Boolean" Nullable="false" />
+          <Property Name="advisorSsn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="currCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="studentId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="dayy" />
+            <PropertyRef Name="hourr" />
+          </Key>
+          <Property Name="dayy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hourr" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attends">
+          <Key>
+            <PropertyRef Name="semester" />
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+            <PropertyRef Name="ename" />
+            <PropertyRef Name="issn" />
+            <PropertyRef Name="sssn" />
+          </Key>
+          <Property Name="semester" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearr" Type="Int32" Nullable="false" />
+          <Property Name="sectionId" Type="Int32" Nullable="false" />
+          <Property Name="ename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="score" Type="Int32" />
+        </EntityType>
+        <EntityType Name="curriculaCourses">
+          <Key>
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="dName" />
+            <PropertyRef Name="currCode" />
+          </Key>
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="currCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="enrolled">
+          <Key>
+            <PropertyRef Name="sssn" />
+            <PropertyRef Name="courseCode" />
+            <PropertyRef Name="yearr" />
+            <PropertyRef Name="sectionId" />
+            <PropertyRef Name="issn" />
+            <PropertyRef Name="hourr" />
+            <PropertyRef Name="dayy" />
+          </Key>
+          <Property Name="sssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lettergrade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="courseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearr" Type="Int32" Nullable="false" />
+          <Property Name="sectionId" Type="Int32" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hourr" Type="Int32" Nullable="false" />
+          <Property Name="dayy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GradsInProjects">
+          <Key>
+            <PropertyRef Name="PrjleadSsn" />
+            <PropertyRef Name="prName" />
+            <PropertyRef Name="gradsssn" />
+          </Key>
+          <Property Name="PrjleadSsn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gradsssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workingHours" Type="Int32" />
+        </EntityType>
+        <EntityType Name="gradstudent">
+          <Key>
+            <PropertyRef Name="sssn" />
+            <PropertyRef Name="advisorSsn" />
+          </Key>
+          <Property Name="sssn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="advisorSsn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstrInProjects">
+          <Key>
+            <PropertyRef Name="PrjleadSsn" />
+            <PropertyRef Name="prName" />
+            <PropertyRef Name="issn" />
+          </Key>
+          <Property Name="PrjleadSsn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workingHours" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="isikuniEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Course" EntityType="Self.Course" />
+          <EntitySet Name="Curricula" EntityType="Self.Curricula" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="emails" EntityType="Self.emails" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" />
+          <EntitySet Name="prevDegrees" EntityType="Self.prevDegrees" />
+          <EntitySet Name="Project" EntityType="Self.Project" />
+          <EntitySet Name="sectionn" EntityType="Self.sectionn" />
+          <EntitySet Name="student" EntityType="Self.student" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" />
+          <EntitySet Name="Attends" EntityType="Self.Attends" />
+          <EntitySet Name="curriculaCourses" EntityType="Self.curriculaCourses" />
+          <EntitySet Name="enrolled" EntityType="Self.enrolled" />
+          <EntitySet Name="GradsInProjects" EntityType="Self.GradsInProjects" />
+          <EntitySet Name="gradstudent" EntityType="Self.gradstudent" />
+          <EntitySet Name="InstrInProjects" EntityType="Self.InstrInProjects" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="isikuniModelStoreContainer" CdmEntityContainer="isikuniEntities1">
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="isikuniModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="ects" ColumnName="ects" />
+                <ScalarProperty Name="courseName" ColumnName="courseName" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="numHours" ColumnName="numHours" />
+                <ScalarProperty Name="preReqCourseCode" ColumnName="preReqCourseCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curricula">
+            <EntityTypeMapping TypeName="isikuniModel.Curricula">
+              <MappingFragment StoreEntitySet="Curricula">
+                <ScalarProperty Name="currCode" ColumnName="currCode" />
+                <ScalarProperty Name="gradOrUGrad" ColumnName="gradOrUGrad" />
+                <ScalarProperty Name="dName" ColumnName="dName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="isikuniModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="dName" ColumnName="dName" />
+                <ScalarProperty Name="budget" ColumnName="budget" />
+                <ScalarProperty Name="headSSn" ColumnName="headSSn" />
+                <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="isikuniModel.emails">
+              <MappingFragment StoreEntitySet="emails">
+                <ScalarProperty Name="sssn" ColumnName="sssn" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exam">
+            <EntityTypeMapping TypeName="isikuniModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="yearr" ColumnName="yearr" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instructor">
+            <EntityTypeMapping TypeName="isikuniModel.Instructor">
+              <MappingFragment StoreEntitySet="Instructor">
+                <ScalarProperty Name="ssn" ColumnName="ssn" />
+                <ScalarProperty Name="iName" ColumnName="iName" />
+                <ScalarProperty Name="rankk" ColumnName="rankk" />
+                <ScalarProperty Name="baseSalary" ColumnName="baseSalary" />
+                <ScalarProperty Name="extraSalary" ColumnName="extraSalary" />
+                <ScalarProperty Name="dName" ColumnName="dName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prevDegrees">
+            <EntityTypeMapping TypeName="isikuniModel.prevDegrees">
+              <MappingFragment StoreEntitySet="prevDegrees">
+                <ScalarProperty Name="college" ColumnName="college" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="gradsssn" ColumnName="gradsssn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project">
+            <EntityTypeMapping TypeName="isikuniModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="leadSsn" ColumnName="leadSsn" />
+                <ScalarProperty Name="prName" ColumnName="prName" />
+                <ScalarProperty Name="budget" ColumnName="budget" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="contrDName" ColumnName="contrDName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sectionn">
+            <EntityTypeMapping TypeName="isikuniModel.sectionn">
+              <MappingFragment StoreEntitySet="sectionn">
+                <ScalarProperty Name="quota" ColumnName="quota" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="yearr" ColumnName="yearr" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="student">
+            <EntityTypeMapping TypeName="isikuniModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="sssn" ColumnName="sssn" />
+                <ScalarProperty Name="gradorUgrad" ColumnName="gradorUgrad" />
+                <ScalarProperty Name="advisorSsn" ColumnName="advisorSsn" />
+                <ScalarProperty Name="currCode" ColumnName="currCode" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="studentId" ColumnName="studentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSlot">
+            <EntityTypeMapping TypeName="isikuniModel.TimeSlot">
+              <MappingFragment StoreEntitySet="TimeSlot">
+                <ScalarProperty Name="dayy" ColumnName="dayy" />
+                <ScalarProperty Name="hourr" ColumnName="hourr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attends">
+            <EntityTypeMapping TypeName="isikuniModel.Attends">
+              <MappingFragment StoreEntitySet="Attends">
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="yearr" ColumnName="yearr" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+                <ScalarProperty Name="sssn" ColumnName="sssn" />
+                <ScalarProperty Name="score" ColumnName="score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="curriculaCourses">
+            <EntityTypeMapping TypeName="isikuniModel.curriculaCourses">
+              <MappingFragment StoreEntitySet="curriculaCourses">
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="dName" ColumnName="dName" />
+                <ScalarProperty Name="currCode" ColumnName="currCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="enrolled">
+            <EntityTypeMapping TypeName="isikuniModel.enrolled">
+              <MappingFragment StoreEntitySet="enrolled">
+                <ScalarProperty Name="sssn" ColumnName="sssn" />
+                <ScalarProperty Name="lettergrade" ColumnName="lettergrade" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+                <ScalarProperty Name="yearr" ColumnName="yearr" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+                <ScalarProperty Name="hourr" ColumnName="hourr" />
+                <ScalarProperty Name="dayy" ColumnName="dayy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GradsInProjects">
+            <EntityTypeMapping TypeName="isikuniModel.GradsInProjects">
+              <MappingFragment StoreEntitySet="GradsInProjects">
+                <ScalarProperty Name="PrjleadSsn" ColumnName="PrjleadSsn" />
+                <ScalarProperty Name="prName" ColumnName="prName" />
+                <ScalarProperty Name="gradsssn" ColumnName="gradsssn" />
+                <ScalarProperty Name="workingHours" ColumnName="workingHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gradstudent">
+            <EntityTypeMapping TypeName="isikuniModel.gradstudent">
+              <MappingFragment StoreEntitySet="gradstudent">
+                <ScalarProperty Name="sssn" ColumnName="sssn" />
+                <ScalarProperty Name="advisorSsn" ColumnName="advisorSsn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstrInProjects">
+            <EntityTypeMapping TypeName="isikuniModel.InstrInProjects">
+              <MappingFragment StoreEntitySet="InstrInProjects">
+                <ScalarProperty Name="PrjleadSsn" ColumnName="PrjleadSsn" />
+                <ScalarProperty Name="prName" ColumnName="prName" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+                <ScalarProperty Name="workingHours" ColumnName="workingHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

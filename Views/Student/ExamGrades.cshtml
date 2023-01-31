@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ExamGrades";
+    ViewBag.Title = "Exams";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,26 +19,31 @@
         <div class="col bg-white">
             <div class="card">
                 <div class="card-header bg-blue text-white">
-                    <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Exam Grades</h4>
+                    <h4 class="text-light" style="height: 8px; font-family: Arial; font-size:18px">Exams</h4>
                 </div>
                 <li class="list-group-item border px-3 pb-3 pt-1">
                     <table class="col text-dark" border="1" cellspacing="2" cellpadding="20">
                         <tr>
+                            <th>Date</th>
+                            <th>Semester</th>
                             <th>Course Code</th>
-                            <th>Exam Name</th>
                             <th>Year</th>
-                            <th>Score</th>
+                            <th>Section ID</th>
+                            <th>Exam Name</th>
+                            <th>Instructor SSN</th>
                         </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                        @foreach (var Exams in Model)
+                        {
+                            <tr>
+                                <td>@Exams.date</td>
+                                <td>@Exams.semester</td>
+                                <td>@Exams.courseCode</td>
+                                <td>@Exams.yearr</td>
+                                <td>@Exams.sectionId</td>
+                                <td>@Exams.ename</td>
+                                <td>@Exams.issn</td>
+                            </tr>
+                        }
                     </table>
                 </li>
             </div>

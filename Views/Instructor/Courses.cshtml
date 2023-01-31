@@ -27,18 +27,20 @@
                             <th>Course Name</th>
                             <th>ECTS</th>
                             <th>Number Of Hours</th>
+                            <th>Prereq Course Code</th>
                         </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                        @foreach (var Course in Model)
+                        {
+                            <tr>
+                                <td>@Course.courseCode</td>
+                                <td>@Course.courseName</td>
+                                <td>@Course.ects</td>
+                                <td>@Course.numHours</td>
+                                <td>@Course.preReqCourseCode</td>
+                            </tr>
+                        }
                     </table>
+
                 </li>
             </div>
         </div>
